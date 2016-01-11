@@ -11,10 +11,8 @@ from .lattice import Locator
 from .lattice import NanoParticle
 
 
-def get_spin(site):
-    if site.atom.kind == 'A':
-        return 2.5
-    return random.choice([2.0, 2.5])
+def get_spin(site, spins):
+    return random.choice(numpy.atleast_1d(spins[site.atom.kind]))
 
 
 @click.group()
@@ -36,6 +34,7 @@ def bulk(descriptor, shape, pbc):
     data = json.load(descriptor)
     atoms = [Atom(**kw) for kw in data['atoms']]
     vertices = [Interaction(**kw) for kw in data['interactions']]
+    spins = data['material']['spins']
     exchanges = data['material']['exchanges']
     latt = Lattice(atoms, shape, pbc, vertices)
 
@@ -58,7 +57,7 @@ def bulk(descriptor, shape, pbc):
             "{id}\t{px}\t{py}\t{pz}\t{spin}\t0.0\t0.0\t0.0\t0.0\t{kind}".format(
                 id=latt.index(site),
                 px=px, py=py, pz=pz,
-                spin=get_spin(site),
+                spin=get_spin(site, spins),
                 kind=site.atom.kind
             ))
 
@@ -79,6 +78,7 @@ def nanoparticle(descriptor, diameter):
     data = json.load(descriptor)
     atoms = [Atom(**kw) for kw in data['atoms']]
     vertices = [Interaction(**kw) for kw in data['interactions']]
+    spins = data['material']['spins']
     exchanges = data['material']['exchanges']
     unitcell = 8.0 * numpy.eye(3)
     locator = Locator(unitcell, crystal_coords=False)
@@ -106,7 +106,7 @@ def nanoparticle(descriptor, diameter):
             "{id}\t{px}\t{py}\t{pz}\t{spin}\t0.0\t0.0\t0.0\t0.0\t{kind}".format(
                 id=new_ids[latt.index(site)],
                 px=px, py=py, pz=pz,
-                spin=get_spin(site),
+                spin=get_spin(site, spins),
                 kind=site.atom.kind
             ))
 
