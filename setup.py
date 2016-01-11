@@ -14,7 +14,7 @@ setup(
     ],
     entry_points='''
     [console_scripts]
-    vegas-lattice=vlatice.scripts:cli
+    vegas-lattice=vlattice.scripts:cli
     ''',
     url='https://github.com/odarbelaeze/vegas-lattice',
     download_url='https://github.com/odarbelaeze/vegas-lattice/tarball/0.1.0',
