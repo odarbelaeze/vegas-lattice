@@ -114,8 +114,8 @@ class Lattice(object):
         '''
         Returns an iterator over all the sites of the lattice
         '''
-        iterator = itertools.product(
-            *map(range, reversed(self.shape)), self.atoms)
+        sequences = list(map(range, reversed(self.shape))) + [self.atoms]
+        iterator = itertools.product(*sequences)
         for data in iterator:
             yield Site(tuple(reversed(data[:-1])), data[-1])
 
@@ -142,8 +142,9 @@ class Locator(object):
 
     def locate(self, site):
         if self.crystal_coords:
-            return self.unitcell @ (numpy.array(site.coords) + site.atom.coords)
-        return (self.unitcell @ site.coords) + site.atom.coords
+            return self.unitcell.dot(
+                numpy.array(site.coords) + site.atom.coords)
+        return self.unitcell.dot(site.coords) + site.atom.coords
 
 
 class NanoParticle(Lattice):
