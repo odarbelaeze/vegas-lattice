@@ -2,6 +2,15 @@
 A lattice generator scrap code, this is something that I often do, a whole
 project with an example case of usage in a single file
 '''
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from __future__ import absolute_import
+from builtins import map
+from builtins import super
+from builtins import zip
+from future import standard_library
+standard_library.install_aliases()
 
 import itertools
 import operator
