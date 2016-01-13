@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/odarbelaeze/vegas-lattice.svg?branch=master)](https://travis-ci.org/odarbelaeze/vegas-lattice)
+
 # vegas-lattice
 
 A lattice generator part of the **vegas** software initiative,
