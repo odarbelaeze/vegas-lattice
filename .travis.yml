@@ -1,6 +1,5 @@
 language: python
 python:
-    - "2.6"
     - "2.7"
     - "3.4"
     - "3.5"
@@ -11,4 +10,6 @@ script:
     - vegas-lattice describe --help
     - vegas-lattice nanoparticle --help
     - vegas-lattice bulk --help
-    - ls docs
+    - vegas-lattice describe docs/sites.dat --lattice-params 8 8 8 --cut 3.52
+    - vegas-lattice nanoparticle docs/magnetite.json
+    - vegas-lattice bulk docs/magnetite.json
