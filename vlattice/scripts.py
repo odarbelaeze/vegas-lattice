@@ -2,6 +2,10 @@ from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
+# Python2 compatibility
+from future import standard_library
+standard_library.install_aliases()
+
 from builtins import map
 from builtins import zip
 from builtins import str
@@ -19,11 +23,6 @@ from .lattice import Interaction
 from .lattice import Lattice
 from .lattice import Locator
 from .lattice import NanoParticle
-
-
-# Python2 compatibility
-from future import standard_library
-standard_library.install_aliases()
 
 
 def get_spin(site, spins):
