@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from setuptools import setup
 from setuptools import find_packages
 
@@ -9,8 +10,9 @@ setup(
     author_email='odarbelaeze@gmail.com',
     packages=find_packages(),
     install_requires=[
-        'numpy>=1.9.2',
         'click>=6.2',
+        'future>=0.15.2',
+        'numpy>=1.9.2',
     ],
     entry_points='''
     [console_scripts]
