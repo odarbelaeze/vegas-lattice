@@ -11,7 +11,6 @@ setup(
     packages=find_packages(),
     install_requires=[
         'click>=6.2',
-        'future>=0.15.2',
         'numpy>=1.9.2',
     ],
     entry_points='''
