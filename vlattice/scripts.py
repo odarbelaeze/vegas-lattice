@@ -169,6 +169,11 @@ def describe(sites, descriptor, shape, cut):
     labels = [l[2:-1] for l in labels]
     images = map(numpy.array, itertools.product((-1, 0, 1), repeat=3))
 
+    spins = {label: None for label in labels}
+    exchanges = {
+        label + other: None
+        for label, other in itertools.product(spins.keys(), repeat=2)}
+
     expanded = []
     for image in images:
         imaged = points + shape * image
@@ -194,10 +199,15 @@ def describe(sites, descriptor, shape, cut):
                     ('type', labels[uuid] + other['kind']),
                 ]))
 
-    atoms = [{'kind': kind, 'site': list(site), 'id': uuid}
-             for kind, site, uuid in zip(labels, points, itertools.count(0))]
-    json.dump({'atoms': atoms, 'interactions': interactions},
-              descriptor, indent=2)
+    atoms = [{'coords': list(site), 'kind': kind, 'id': uuid}
+             for site, kind, uuid in zip(points, labels, itertools.count(0))]
+
+    data = collections.OrderedDict([
+        ('material', {'spins': spins, 'exchanges': exchanges, }),
+        ('atoms', atoms),
+        ('interactions', interactions)
+    ])
+    json.dump(data, descriptor, indent=2)
 
 
 if __name__ == '__main__':
