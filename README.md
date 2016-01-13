@@ -7,9 +7,9 @@ and randomly depleted lattices.
 
 # Instalation
 
-The **vegas-lattice** program requires python3 to work properly, you
-can install the package from the python package index using the following
-command:
+The **vegas-lattice** program has been tested in python 2.7, 3.4 and 3.5
+to work properly, you can install the package from the python package index
+using the following command:
 
 ```bash
 pip install vegas-lattice   # this might require sudo
