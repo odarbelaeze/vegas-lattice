@@ -142,11 +142,11 @@ def nanoparticle(descriptor, diameter, lattice_params):
 @cli.command()
 @click.argument('sites', type=click.File('r'))
 @click.argument('descriptor', type=click.File('w'), default="-")
-@click.option('--shape', default=(1.0, 1.0, 1.0),
+@click.option('--lattice-params', default=(1.0, 1.0, 1.0),
               help='Shape of the unitcell (default: a=b=c=1)')
 @click.option('--cut', default=1.0,
               help='Neighbor cutoff radius (default: 1.0)')
-def describe(sites, descriptor, shape, cut):
+def describe(sites, descriptor, lattice_params, cut):
     '''
     Generates a descriptor file from a site list file, the site list file format
     should be a plain text file with the following format:
@@ -176,7 +176,7 @@ def describe(sites, descriptor, shape, cut):
 
     expanded = []
     for image in images:
-        imaged = points + shape * image
+        imaged = points + lattice_params * image
         for site, kind, uuid in zip(imaged, labels, itertools.count(0)):
             expanded.append({
                 'site': site,
