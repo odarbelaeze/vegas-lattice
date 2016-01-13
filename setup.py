@@ -1,11 +1,10 @@
-from __future__ import unicode_literals
 from setuptools import setup
 from setuptools import find_packages
 
 
 setup(
     name='vegas-lattice',
-    version='0.1.2',
+    version='0.2.0',
     author='Oscar D. Arbeláez <@odarbelaeze>, Juan D. Alzate <@jdalzatec>',
     author_email='odarbelaeze@gmail.com',
     packages=find_packages(),
@@ -18,7 +17,7 @@ setup(
     vegas-lattice=vlattice.scripts:cli
     ''',
     url='https://github.com/odarbelaeze/vegas-lattice',
-    download_url='https://github.com/odarbelaeze/vegas-lattice/tarball/0.1.2',
+    download_url='https://github.com/odarbelaeze/vegas-lattice/tarball/0.2.0',
     keywords=['lattice', 'graph', 'magnetite', 'construction', ],
     description='A magnetite sample generator',
 )
