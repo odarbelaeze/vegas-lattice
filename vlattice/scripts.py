@@ -102,7 +102,7 @@ def nanoparticle(descriptor, diameter, lattice_params):
 
     scale = numpy.amax(material.parameters)
     locator = material.locator()
-    latt = NanoParticle(locator, diameter*scale, atoms, shape, pbc, vertices)
+    latt = NanoParticle(locator, diameter*scale/2, atoms, shape, pbc, vertices)
 
     lsites = []
     linteractions = []
