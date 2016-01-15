@@ -6,10 +6,34 @@ import click
 import numpy
 
 from .lattice import Atom
-from .lattice import Interaction
+from .lattice import Vertex
 from .lattice import Lattice
 from .lattice import NanoParticle
 from .material import Material
+
+
+Geometry = collections.namedtuple('Geometry', ['sites', 'links', 'axes', 'patch'])
+
+
+def compute_geometry(lattice, material):
+    locator = material.locator()
+
+    lsites = []
+    linteractions = []
+    axes = []
+    # Patch the ids according to the removed material
+    new_ids = {}
+
+    for idx, site in enumerate(lattice.sites()):
+        lsites.append(site)
+        new_ids[lattice.index(site)] = idx
+        axis = numpy.array([0.0, 0.0, 0.0])
+        for interaction in lattice.interactions_for(site):
+            linteractions.append(interaction)
+            axis += locator.locate(interaction.target) - locator.locate(site)
+        axes.append(axis)
+
+    return Geometry(lsites, linteractions, axes, new_ids)
 
 
 def echo_header(material, sites, links):
@@ -68,20 +92,14 @@ def bulk(descriptor, shape, pbc, lattice_params):
 
     data = json.load(descriptor)
     atoms = [Atom(**kw) for kw in data['atoms']]
-    vertices = [Interaction(**kw) for kw in data['interactions']]
+    vertices = [Vertex(**kw) for kw in data['interactions']]
     material = Material(data['material'])
     latt = Lattice(atoms, shape, pbc, vertices)
 
-    lsites = []
-    linteractions = []
-
-    for site in latt.sites():
-        lsites.append(site)
-        for interaction in latt.interactions_for(site):
-            linteractions.append(interaction)
+    lsites, linteractions, axes, _ = compute_geometry(latt, material)
 
     echo_header(material, lsites, linteractions)
-    echo_sites(material, latt, lsites)
+    echo_sites(material, latt, lsites, axes)
     echo_interactions(material, latt, linteractions)
 
 
@@ -95,7 +113,7 @@ def nanoparticle(descriptor, diameter, lattice_params):
 
     data = json.load(descriptor)
     atoms = [Atom(**kw) for kw in data['atoms']]
-    vertices = [Interaction(**kw) for kw in data['interactions']]
+    vertices = [Vertex(**kw) for kw in data['interactions']]
     material = Material(data['material'])
     shape = (diameter, ) * 3
     pbc = (False, ) * 3
@@ -104,21 +122,11 @@ def nanoparticle(descriptor, diameter, lattice_params):
     locator = material.locator()
     latt = NanoParticle(locator, diameter*scale/2, atoms, shape, pbc, vertices)
 
-    lsites = []
-    linteractions = []
-
-    # Patch the ids according to the removed material
-    new_ids = {}
-
-    for idx, site in enumerate(latt.sites()):
-        lsites.append(site)
-        new_ids[latt.index(site)] = idx
-        for interaction in latt.interactions_for(site):
-            linteractions.append(interaction)
+    lsites, linteractions, axes, patch = compute_geometry(latt, material)
 
     echo_header(material, lsites, linteractions)
-    echo_sites(material, latt, lsites, patch=new_ids)
-    echo_interactions(material, latt, linteractions, patch=new_ids)
+    echo_sites(material, latt, lsites, patch=patch)
+    echo_interactions(material, latt, linteractions, patch=patch)
 
 
 @cli.command()
