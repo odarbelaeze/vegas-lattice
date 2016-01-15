@@ -9,6 +9,19 @@
     "spins": {
         "A": 2.5,
         "B": [2.0, 2.5]
+    },
+    "unitcell": {
+        "vectors": [
+            [1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]
+        ],
+        "parameters": [8, 8, 8]
+    },
+    "anisotropy": {
+        "axis": [0, 0, 0],
+        "core": 1.92,
+        "surface": 1.92
     }
   },
   "atoms": [
