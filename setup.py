@@ -8,7 +8,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
 
 setuptools.setup(
     name='vegas-lattice',
-    version='0.2.1',
+    version='0.3.0',
     author='Oscar D. Arbeláez <@odarbelaeze>, Juan D. Alzate <@jdalzatec>',
     author_email='odarbelaeze@gmail.com',
     license='MIT license',
@@ -22,7 +22,7 @@ setuptools.setup(
     vegas-lattice=vlattice.scripts:cli
     ''',
     url='https://github.com/odarbelaeze/vegas-lattice',
-    download_url='https://github.com/odarbelaeze/vegas-lattice/tarball/0.2.1',
+    download_url='https://github.com/odarbelaeze/vegas-lattice/tarball/0.3.0',
     keywords=['lattice', 'graph', 'magnetite', 'construction', 'grid' ],
     description='A grid lattice sample generator',
     long_description=README,
