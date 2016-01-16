@@ -12,7 +12,9 @@ from .lattice import NanoParticle
 from .material import Material
 
 
-Geometry = collections.namedtuple('Geometry', ['sites', 'links', 'axes', 'patch'])
+Geometry = collections.namedtuple(
+    'Geometry', ['sites', 'links', 'axes', 'patch']
+)
 
 
 def compute_geometry(lattice, material):
@@ -43,16 +45,21 @@ def echo_header(material, sites, links):
     click.echo('\n'.join(atom_kinds))
 
 
-def echo_sites(material, lattice, sites, patch=None):
+def echo_sites(material, lattice, sites, axes, patch=None):
     patch = patch or {}
     locator = material.locator()
-    for site in sites:
+    anisotropy = material.anisotropy
+    for site, axis in zip(sites, axes):
         px, py, pz = tuple(locator.locate(site))
         index = lattice.index(site)
+        val, axis = anisotropy.from_axis(axis)
+        ax, ay, az = axis
         click.echo(
-            "{id}\t{px}\t{py}\t{pz}\t{spin}\t0.0\t0.0\t0.0\t0.0\t{kind}".format(
-                id=patch.get(index, index),
+            "{uuid}\t{px}\t{py}\t{pz}\t{spin}\t"
+            "{ax}\t{ay}\t{az}\t{k}\t{kind}".format(
+                uuid=patch.get(index, index),
                 px=px, py=py, pz=pz,
+                ax=ax, ay=ay, az=az, k=val,
                 spin=material.spin(site.atom.kind),
                 kind=site.atom.kind
             ))
@@ -125,7 +132,7 @@ def nanoparticle(descriptor, diameter, lattice_params):
     lsites, linteractions, axes, patch = compute_geometry(latt, material)
 
     echo_header(material, lsites, linteractions)
-    echo_sites(material, latt, lsites, patch=patch)
+    echo_sites(material, latt, lsites, axes, patch=patch)
     echo_interactions(material, latt, linteractions, patch=patch)
 
 
