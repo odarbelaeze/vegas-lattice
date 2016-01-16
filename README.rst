@@ -1,13 +1,17 @@
-[![Build Status](https://travis-ci.org/odarbelaeze/vegas-lattice.svg?branch=master)](https://travis-ci.org/odarbelaeze/vegas-lattice)
+.. image:: https://travis-ci.org/odarbelaeze/vegas-lattice.svg?branch=master
+    :target: https://travis-ci.org/odarbelaeze/vegas-lattice
 
-# vegas-lattice
+=============
+vegas-lattice
+=============
 
 A lattice generator part of the **vegas** software initiative,
 it provides the esential routines to generate regular graph lattices
 in linear time, as well as some cuts of those lattices for nano particles
 and randomly depleted lattices.
 
-# Instalation
+Instalation
+-----------
 
 The **vegas-lattice** program has been tested in python 2.7, 3.4 and 3.5
 to work properly, you can install the package from the python package index
