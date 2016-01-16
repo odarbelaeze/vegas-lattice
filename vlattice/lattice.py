@@ -2,11 +2,15 @@
 A lattice generator scrap code, this is something that I often do, a whole
 project with an example case of usage in a single file
 '''
+import collections
 import itertools
 import operator
 
 # External dependencies
 import numpy
+
+
+Interaction = collections.namedtuple('Interaction', ['source', 'target', 'exchange'])
 
 
 class Atom(object):
@@ -35,7 +39,7 @@ class Site(object):
         return 'Site({}, atom={})'.format(self.coords, self.atom)
 
 
-class Interaction(object):
+class Vertex(object):
     '''
     Represents an interaction object
     '''
@@ -128,7 +132,7 @@ class Lattice(object):
             coord, iid = vertex.target_for(site)
             tgt = Site(coord, self.atoms[iid])
             if self.contains(tgt):
-                yield site, tgt, vertex
+                yield Interaction(site, tgt, vertex)
 
 
 class Locator(object):

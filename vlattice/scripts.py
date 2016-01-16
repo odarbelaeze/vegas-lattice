@@ -1,20 +1,80 @@
 import collections
 import itertools
 import json
-import random
 
 import click
 import numpy
 
 from .lattice import Atom
-from .lattice import Interaction
+from .lattice import Vertex
 from .lattice import Lattice
-from .lattice import Locator
 from .lattice import NanoParticle
+from .material import Material
 
 
-def get_spin(site, spins):
-    return random.choice(numpy.atleast_1d(spins[site.atom.kind]))
+Geometry = collections.namedtuple(
+    'Geometry', ['sites', 'links', 'axes', 'patch']
+)
+
+
+def compute_geometry(lattice, material):
+    locator = material.locator()
+
+    lsites = []
+    linteractions = []
+    axes = []
+    # Patch the ids according to the removed material
+    new_ids = {}
+
+    for idx, site in enumerate(lattice.sites()):
+        lsites.append(site)
+        new_ids[lattice.index(site)] = idx
+        axis = numpy.array([0.0, 0.0, 0.0])
+        for interaction in lattice.interactions_for(site):
+            linteractions.append(interaction)
+            axis += locator.locate(interaction.target) - locator.locate(site)
+        axes.append(axis)
+
+    return Geometry(lsites, linteractions, axes, new_ids)
+
+
+def echo_header(material, sites, links):
+    atom_kinds = material.atom_kinds()
+    click.echo("{}\t{}\t{}\t{}".format(
+        len(sites), len(links), len(atom_kinds), 0))
+    click.echo('\n'.join(atom_kinds))
+
+
+def echo_sites(material, lattice, sites, axes, patch=None):
+    patch = patch or {}
+    locator = material.locator()
+    anisotropy = material.anisotropy
+    for site, axis in zip(sites, axes):
+        px, py, pz = tuple(locator.locate(site))
+        index = lattice.index(site)
+        val, axis = anisotropy.from_axis(axis)
+        ax, ay, az = axis
+        click.echo(
+            "{uuid}\t{px}\t{py}\t{pz}\t{spin}\t"
+            "{ax}\t{ay}\t{az}\t{k}\t{kind}".format(
+                uuid=patch.get(index, index),
+                px=px, py=py, pz=pz,
+                ax=ax, ay=ay, az=az, k=val,
+                spin=material.spin(site.atom.kind),
+                kind=site.atom.kind
+            ))
+
+
+def echo_interactions(material, lattice, interactions, patch=None):
+    patch = patch or {}
+    for source, target, vertex in interactions:
+        sindex = lattice.index(source)
+        tindex = lattice.index(target)
+        click.echo('{source}\t{target}\t{exchange}'.format(
+            source=patch.get(sindex, sindex),
+            target=patch.get(tindex, tindex),
+            exchange=material.exchange(vertex.kind)
+            ))
 
 
 @click.group()
@@ -33,97 +93,70 @@ def cli():
               help='shape of the lattice')
 @click.option('--pbc', default=(True, True, True),
               help='use periodic boundary conditions')
-@click.option('--lattice-params', default=(1.0, 1.0, 1.0),
-              help='lattice parameters for the atoms in the descriptor')
-def bulk(descriptor, shape, pbc, lattice_params):
+def bulk(descriptor, shape, pbc):
+    '''
+    Generates a bulk out of the given descriptor, the shape of the bulk in
+    unit cells as well as the periodic boundari conditions can be passed in
+    as options.
+
+    The descriptor file format is a simple json format, you should specify a
+    list of atoms under an "atoms" key as well as a list of interactions under
+    the "interactions" key, "spins" and "exchanges" are also required under
+    the "material" key. Furthermore, under the "material" key, you can specify
+    an "anisotropy" key with anisotropy information as well as an "unitcell" key
+    with geometric information.
+
+    See the example files under docs/ for more information.
+    '''
 
     data = json.load(descriptor)
     atoms = [Atom(**kw) for kw in data['atoms']]
-    vertices = [Interaction(**kw) for kw in data['interactions']]
-    spins = data['material']['spins']
-    exchanges = data['material']['exchanges']
+    vertices = [Vertex(**kw) for kw in data['interactions']]
+    material = Material(data['material'])
     latt = Lattice(atoms, shape, pbc, vertices)
 
-    lsites = []
-    linteractions = []
+    lsites, linteractions, axes, _ = compute_geometry(latt, material)
 
-    unitcell = numpy.eye(3) * lattice_params
-    locator = Locator(unitcell, crystal_coords=False)
-
-    for site in latt.sites():
-        lsites.append(site)
-        for interaction in latt.interactions_for(site):
-            linteractions.append(interaction)
-
-    click.echo("{}\t{}\t{}\t{}".format(len(lsites), len(linteractions), 2, 0))
-    click.echo("A\nB")
-    for site in lsites:
-        px, py, pz = tuple(locator.locate(site))
-        click.echo(
-            "{id}\t{px}\t{py}\t{pz}\t{spin}\t0.0\t0.0\t0.0\t0.0\t{kind}".format(
-                id=latt.index(site),
-                px=px, py=py, pz=pz,
-                spin=get_spin(site, spins),
-                kind=site.atom.kind
-            ))
-
-    for source, target, vertex in linteractions:
-        click.echo('{source}\t{target}\t{exchange}'.format(
-            source=latt.index(source),
-            target=latt.index(target),
-            exchange=exchanges[vertex.kind]
-            ))
+    echo_header(material, lsites, linteractions)
+    echo_sites(material, latt, lsites, axes)
+    echo_interactions(material, latt, linteractions)
 
 
 @cli.command()
 @click.argument('descriptor', type=click.File('r'))
 @click.option('--diameter', default=5,
               help='Diameter of the nanoparticle')
-@click.option('--lattice-params', default=(1.0, 1.0, 1.0),
-              help='lattice parameters for the atoms in the descriptor')
-def nanoparticle(descriptor, diameter, lattice_params):
+def nanoparticle(descriptor, diameter):
+    '''
+    Generates a nanoparticle out of the given descriptor, the diameter of the
+    nanoparticle in unit cells can be passed in as an option.
+
+    The descriptor file format is a simple json format, you should specify a
+    list of atoms under an "atoms" key as well as a list of interactions under
+    the "interactions" key, "spins" and "exchanges" are also required under the
+    "material" key. Furthermore, under the "material" key, you can specify an
+    "anisotropy" key with anisotropy information as well as an "unitcell" key
+    with geometric information.
+
+    See the example files under docs/ for more information.
+    '''
 
     data = json.load(descriptor)
     atoms = [Atom(**kw) for kw in data['atoms']]
-    vertices = [Interaction(**kw) for kw in data['interactions']]
-    spins = data['material']['spins']
-    exchanges = data['material']['exchanges']
-    unitcell = numpy.eye(3) * lattice_params
-    locator = Locator(unitcell, crystal_coords=False)
+    vertices = [Vertex(**kw) for kw in data['interactions']]
+    material = Material(data['material'])
     shape = (diameter, ) * 3
     pbc = (False, ) * 3
 
-    latt = NanoParticle(locator, diameter*4, atoms, shape, pbc, vertices)
+    scale = numpy.amax(material.parameters)
+    locator = material.locator()
+    latt = NanoParticle(locator, diameter*scale/2, atoms, shape, pbc, vertices)
 
-    lsites = []
-    linteractions = []
-    new_ids = {}
+    lsites, linteractions, axes, patch = compute_geometry(latt, material)
 
-    for idx, site in enumerate(latt.sites()):
-        lsites.append(site)
-        new_ids[latt.index(site)] = idx
-        for interaction in latt.interactions_for(site):
-            linteractions.append(interaction)
-
-    click.echo("{}\t{}\t{}\t{}".format(len(lsites), len(linteractions), 2, 0))
-    click.echo("A\nB")
-
-    for site in lsites:
-        px, py, pz = tuple(locator.locate(site))
-        click.echo(
-            "{id}\t{px}\t{py}\t{pz}\t{spin}\t0.0\t0.0\t0.0\t0.0\t{kind}".format(
-                id=new_ids[latt.index(site)],
-                px=px, py=py, pz=pz,
-                spin=get_spin(site, spins),
-                kind=site.atom.kind
-            ))
-
-    for source, target, vertex in linteractions:
-        click.echo('{source}\t{target}\t{exchange}'.format(
-            source=new_ids[latt.index(source)],
-            target=new_ids[latt.index(target)],
-            exchange=exchanges[vertex.kind]
-            ))
+    echo_header(material, lsites, linteractions)
+    echo_sites(material, latt, lsites, axes, patch=patch)
+    echo_interactions(material, latt, linteractions, patch=patch)
 
 
 @cli.command()
@@ -149,6 +182,7 @@ def describe(sites, descriptor, lattice_params, cut):
     descriptor file will be written there, otherwise the standard output will
     be used.
     '''
+
     points = numpy.loadtxt(sites, usecols=(0, 1, 2))
     # Rewind the file handle
     sites.seek(0, 0)
