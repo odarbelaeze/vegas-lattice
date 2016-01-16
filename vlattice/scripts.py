@@ -93,9 +93,21 @@ def cli():
               help='shape of the lattice')
 @click.option('--pbc', default=(True, True, True),
               help='use periodic boundary conditions')
-@click.option('--lattice-params', default=(1.0, 1.0, 1.0),
-              help='lattice parameters for the atoms in the descriptor')
-def bulk(descriptor, shape, pbc, lattice_params):
+def bulk(descriptor, shape, pbc):
+    '''
+    Generates a bulk out of the given descriptor, the shape of the bulk in
+    unit cells as well as the periodic boundari conditions can be passed in
+    as options.
+
+    The descriptor file format is a simple json format, you should specify a
+    list of atoms under an "atoms" key as well as a list of interactions under
+    the "interactions" key, "spins" and "exchanges" are also required under
+    the "material" key. Furthermore, under the "material" key, you can specify
+    an "anisotropy" key with anisotropy information as well as an "unitcell" key
+    with geometric information.
+
+    See the example files under docs/ for more information.
+    '''
 
     data = json.load(descriptor)
     atoms = [Atom(**kw) for kw in data['atoms']]
@@ -114,9 +126,20 @@ def bulk(descriptor, shape, pbc, lattice_params):
 @click.argument('descriptor', type=click.File('r'))
 @click.option('--diameter', default=5,
               help='Diameter of the nanoparticle')
-@click.option('--lattice-params', default=(1.0, 1.0, 1.0),
-              help='lattice parameters for the atoms in the descriptor')
-def nanoparticle(descriptor, diameter, lattice_params):
+def nanoparticle(descriptor, diameter):
+    '''
+    Generates a nanoparticle out of the given descriptor, the diameter of the
+    nanoparticle in unit cells can be passed in as an option.
+
+    The descriptor file format is a simple json format, you should specify a
+    list of atoms under an "atoms" key as well as a list of interactions under
+    the "interactions" key, "spins" and "exchanges" are also required under the
+    "material" key. Furthermore, under the "material" key, you can specify an
+    "anisotropy" key with anisotropy information as well as an "unitcell" key
+    with geometric information.
+
+    See the example files under docs/ for more information.
+    '''
 
     data = json.load(descriptor)
     atoms = [Atom(**kw) for kw in data['atoms']]
