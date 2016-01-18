@@ -11,6 +11,7 @@
         "B": [2.0, 2.5]
     },
     "unitcell": {
+        "crystal_coords": false,
         "vectors": [
             [1, 0, 0],
             [0, 1, 0],
