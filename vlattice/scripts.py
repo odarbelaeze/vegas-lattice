@@ -9,6 +9,7 @@ from .lattice import Atom
 from .lattice import Vertex
 from .lattice import Lattice
 from .lattice import NanoParticle
+from .lattice import DepletedLattice
 from .material import Material
 
 
@@ -40,7 +41,7 @@ def compute_geometry(lattice, material):
 
 def echo_header(material, sites, links):
     atom_kinds = material.atom_kinds()
-    click.echo("{}\t{}\t{}\t{}".format(
+    click.echo('{}\t{}\t{}\t{}'.format(
         len(sites), len(links), len(atom_kinds), 0))
     click.echo('\n'.join(atom_kinds))
 
@@ -55,8 +56,8 @@ def echo_sites(material, lattice, sites, axes, patch=None):
         val, axis = anisotropy.from_axis(axis)
         ax, ay, az = axis
         click.echo(
-            "{uuid}\t{px}\t{py}\t{pz}\t{spin}\t"
-            "{ax}\t{ay}\t{az}\t{k}\t{kind}".format(
+            '{uuid}\t{px}\t{py}\t{pz}\t{spin}\t'
+            '{ax}\t{ay}\t{az}\t{k}\t{kind}'.format(
                 uuid=patch.get(index, index),
                 px=px, py=py, pz=pz,
                 ax=ax, ay=ay, az=az, k=val,
@@ -160,8 +161,42 @@ def nanoparticle(descriptor, diameter):
 
 
 @cli.command()
+@click.argument('descriptor', type=click.File('r'))
+@click.argument('probability', type=float)
+@click.option('--shape', default=(1, 1, 1),
+              help='shape of the lattice')
+@click.option('--pbc', default=(True, True, True),
+              help='use periodic boundary conditions')
+def depleted(descriptor, probability, shape, pbc):
+    '''
+    Generates a lattice with some depletion probability.
+
+    The descriptor file format is a simple json format, you should specify a
+    list of atoms under an "atoms" key as well as a list of interactions under
+    the "interactions" key, "spins" and "exchanges" are also required under
+    the "material" key. Furthermore, under the "material" key, you can specify
+    an "anisotropy" key with anisotropy information as well as an "unitcell" key
+    with geometric information.
+
+    See the example files under docs/ for more information.
+    '''
+
+    data = json.load(descriptor)
+    atoms = [Atom(**kw) for kw in data['atoms']]
+    vertices = [Vertex(**kw) for kw in data['interactions']]
+    material = Material(data['material'])
+    latt = DepletedLattice(probability, atoms, shape, pbc, vertices)
+
+    lsites, linteractions, axes, patch = compute_geometry(latt, material)
+
+    echo_header(material, lsites, linteractions)
+    echo_sites(material, latt, lsites, axes, patch=patch)
+    echo_interactions(material, latt, linteractions, patch=patch)
+
+
+@cli.command()
 @click.argument('sites', type=click.File('r'))
-@click.argument('descriptor', type=click.File('w'), default="-")
+@click.argument('descriptor', type=click.File('w'), default='-')
 @click.option('--lattice-params', default=(1.0, 1.0, 1.0),
               help='Shape of the unitcell (default: a=b=c=1)')
 @click.option('--cut', default=1.0,

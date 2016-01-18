@@ -12,3 +12,6 @@ script:
     - vegas-lattice describe docs/sites.dat --lattice-params 8 8 8 --cut 3.52
     - vegas-lattice nanoparticle docs/magnetite.json
     - vegas-lattice bulk docs/magnetite.json
+    - vegas-lattice depleted docs/magnetite.json 0.0
+    - vegas-lattice depleted docs/magnetite.json 0.5
+    - vegas-lattice depleted docs/magnetite.json 1.0
