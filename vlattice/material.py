@@ -51,10 +51,16 @@ class Material(object):
             self.parameters = numpy.array(data['unitcell']['parameters'])
         except KeyError:
             self.parameters = numpy.array([1.0, ] * 3)
+        try:
+            self.crystal_coords = numpy.array(
+                data['unitcell']['crystal_coords']
+            )
+        except KeyError:
+            self.crystal_coords = False
 
-    def locator(self, crystal_coords=False):
+    def locator(self):
         return Locator(self.unitcell * self.parameters,
-                       crystal_coords=crystal_coords)
+                       crystal_coords=self.crystal_coords)
 
     def spin(self, kind):
         '''

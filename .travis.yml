@@ -4,7 +4,9 @@ python:
     - "3.5"
 install:
     - pip install .
+    - pip install pytest
 script:
+    - python -m pytest
     - vegas-lattice --help
     - vegas-lattice describe --help
     - vegas-lattice nanoparticle --help
