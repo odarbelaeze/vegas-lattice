@@ -1,28 +1,28 @@
 {
   "material": {
     "exchanges": {
-        "AA": -0.11,
-        "AB": -2.92,
-        "BA": -2.92,
-        "BB":  0.63
+      "AA": -0.11,
+      "AB": -2.92,
+      "BA": -2.92,
+      "BB":  0.63
     },
     "spins": {
-        "A": 2.5,
-        "B": [2.0, 2.5]
+      "A": 2.5,
+      "B": [2.0, 2.5]
     },
     "unitcell": {
-        "crystal_coords": false,
-        "vectors": [
-            [1, 0, 0],
-            [0, 1, 0],
-            [0, 0, 1]
-        ],
-        "parameters": [8, 8, 8]
+      "crystal_coords": false,
+      "vectors": [
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1]
+      ],
+      "parameters": [8, 8, 8]
     },
     "anisotropy": {
-        "axis": [0, 0, 0],
-        "core": 1.92,
-        "surface": 1.92
+      "axis": [0, 0, 0],
+      "core": 1.92,
+      "surface": 1.92
     }
   },
   "atoms": [
