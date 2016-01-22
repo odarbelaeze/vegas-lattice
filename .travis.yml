@@ -17,3 +17,4 @@ script:
     - vegas-lattice depleted docs/magnetite.json 0.0
     - vegas-lattice depleted docs/magnetite.json 0.5
     - vegas-lattice depleted docs/magnetite.json 1.0
+    - vegas-lattice bulk docs/manganite.json
