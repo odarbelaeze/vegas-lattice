@@ -251,8 +251,8 @@ def describe(sites, descriptor, lattice_params, cut):
                 interactions.append(collections.OrderedDict([
                     ('source', uuid),
                     ('target', other['id']),
-                    ('delta', [str(i) for i in other['image']]),
-                    ('type', labels[uuid] + other['kind']),
+                    ('delta', [int(i) for i in other['image']]),
+                    ('kind', labels[uuid] + other['kind']),
                 ]))
 
     atoms = [{'coords': list(site), 'kind': kind, 'id': uuid}

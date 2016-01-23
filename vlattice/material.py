@@ -15,7 +15,7 @@ class Anisotropy(object):
     '''
     def __init__(self, data=None):
         self._data = data or {}
-        self.vector = self._data.get('vector', [0.0, 0.0, 0.0])
+        self.axis = self._data.get('axis', [0.0, 0.0, 0.0])
         self.core = self._data.get('core', 0.0)
         self.surface = self._data.get('surface', self.core)
 
@@ -26,7 +26,7 @@ class Anisotropy(object):
     def from_axis(self, axis):
         _axis = numpy.array(axis)
         if Anisotropy._axis_is_core(_axis):
-            return (self.core, self.vector)
+            return (self.core, self.axis)
         return (self.surface, _axis / numpy.linalg.norm(axis))
 
 

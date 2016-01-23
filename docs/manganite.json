@@ -1,0 +1,1898 @@
+{
+  "material": {
+    "exchanges": {
+      "Mn4_edMn3_eg": 7.77,
+      "Mn3_egMn3_egp": 4.65,
+      "Mn3_egpMn3_eg": 4.65,
+      "Mn3_egMn4_ed": 7.77,
+      "Mn4_edMn3_egp": 1.35,
+      "Mn3_egpMn4_ed": 1.35
+    },
+    "spins": {
+      "Mn3_eg": 2.0,
+      "Mn4_ed": 1.5,
+      "Mn3_egp": 2.0
+    },
+    "unitcell": {
+      "crystal_coords": false,
+      "vectors": [
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1]
+      ],
+      "parameters": [3, 3, 3]
+    },
+    "anisotropy": {
+      "axis": [1, 0, 0],
+      "core": 1.2484,
+      "surface": 1.2484
+    }
+  },
+  "atoms": [
+    {
+      "coords": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "kind": "Mn3_eg",
+      "id": 0
+    },
+    {
+      "coords": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "kind": "Mn3_egp",
+      "id": 1
+    },
+    {
+      "coords": [
+        2.0,
+        0.0,
+        0.0
+      ],
+      "kind": "Mn4_ed",
+      "id": 2
+    },
+    {
+      "coords": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "kind": "Mn3_egp",
+      "id": 3
+    },
+    {
+      "coords": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "kind": "Mn4_ed",
+      "id": 4
+    },
+    {
+      "coords": [
+        2.0,
+        1.0,
+        0.0
+      ],
+      "kind": "Mn3_eg",
+      "id": 5
+    },
+    {
+      "coords": [
+        0.0,
+        2.0,
+        0.0
+      ],
+      "kind": "Mn4_ed",
+      "id": 6
+    },
+    {
+      "coords": [
+        1.0,
+        2.0,
+        0.0
+      ],
+      "kind": "Mn3_eg",
+      "id": 7
+    },
+    {
+      "coords": [
+        2.0,
+        2.0,
+        0.0
+      ],
+      "kind": "Mn3_egp",
+      "id": 8
+    },
+    {
+      "coords": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "kind": "Mn3_egp",
+      "id": 9
+    },
+    {
+      "coords": [
+        1.0,
+        0.0,
+        1.0
+      ],
+      "kind": "Mn4_ed",
+      "id": 10
+    },
+    {
+      "coords": [
+        2.0,
+        0.0,
+        1.0
+      ],
+      "kind": "Mn3_eg",
+      "id": 11
+    },
+    {
+      "coords": [
+        0.0,
+        1.0,
+        1.0
+      ],
+      "kind": "Mn4_ed",
+      "id": 12
+    },
+    {
+      "coords": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kind": "Mn3_eg",
+      "id": 13
+    },
+    {
+      "coords": [
+        2.0,
+        1.0,
+        1.0
+      ],
+      "kind": "Mn3_egp",
+      "id": 14
+    },
+    {
+      "coords": [
+        0.0,
+        2.0,
+        1.0
+      ],
+      "kind": "Mn3_eg",
+      "id": 15
+    },
+    {
+      "coords": [
+        1.0,
+        2.0,
+        1.0
+      ],
+      "kind": "Mn3_egp",
+      "id": 16
+    },
+    {
+      "coords": [
+        2.0,
+        2.0,
+        1.0
+      ],
+      "kind": "Mn4_ed",
+      "id": 17
+    },
+    {
+      "coords": [
+        0.0,
+        0.0,
+        2.0
+      ],
+      "kind": "Mn4_ed",
+      "id": 18
+    },
+    {
+      "coords": [
+        1.0,
+        0.0,
+        2.0
+      ],
+      "kind": "Mn3_eg",
+      "id": 19
+    },
+    {
+      "coords": [
+        2.0,
+        0.0,
+        2.0
+      ],
+      "kind": "Mn3_egp",
+      "id": 20
+    },
+    {
+      "coords": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "kind": "Mn3_eg",
+      "id": 21
+    },
+    {
+      "coords": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "kind": "Mn3_egp",
+      "id": 22
+    },
+    {
+      "coords": [
+        2.0,
+        1.0,
+        2.0
+      ],
+      "kind": "Mn4_ed",
+      "id": 23
+    },
+    {
+      "coords": [
+        0.0,
+        2.0,
+        2.0
+      ],
+      "kind": "Mn3_egp",
+      "id": 24
+    },
+    {
+      "coords": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "kind": "Mn4_ed",
+      "id": 25
+    },
+    {
+      "coords": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "kind": "Mn3_eg",
+      "id": 26
+    }
+  ],
+  "interactions": [
+    {
+      "source": 0,
+      "target": 2,
+      "delta": [
+        -1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "delta": [
+        0,
+        -1,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 0,
+      "target": 18,
+      "delta": [
+        0,
+        0,
+        -1
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 0,
+      "target": 1,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 0,
+      "target": 9,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 1,
+      "target": 7,
+      "delta": [
+        0,
+        -1,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 1,
+      "target": 19,
+      "delta": [
+        0,
+        0,
+        -1
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 1,
+      "target": 0,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 1,
+      "target": 10,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 2,
+      "target": 8,
+      "delta": [
+        0,
+        -1,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 2,
+      "target": 20,
+      "delta": [
+        0,
+        0,
+        -1
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 2,
+      "target": 1,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 2,
+      "target": 5,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 2,
+      "target": 11,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 2,
+      "target": 0,
+      "delta": [
+        1,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 3,
+      "target": 5,
+      "delta": [
+        -1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 3,
+      "target": 21,
+      "delta": [
+        0,
+        0,
+        -1
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 3,
+      "target": 0,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 3,
+      "target": 6,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 3,
+      "target": 12,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 4,
+      "target": 22,
+      "delta": [
+        0,
+        0,
+        -1
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 4,
+      "target": 1,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 4,
+      "target": 3,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 4,
+      "target": 7,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 4,
+      "target": 13,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 5,
+      "target": 23,
+      "delta": [
+        0,
+        0,
+        -1
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 5,
+      "target": 2,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 5,
+      "target": 4,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 5,
+      "target": 8,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 5,
+      "target": 14,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 5,
+      "target": 3,
+      "delta": [
+        1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 6,
+      "target": 8,
+      "delta": [
+        -1,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 6,
+      "target": 24,
+      "delta": [
+        0,
+        0,
+        -1
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 6,
+      "target": 3,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 6,
+      "target": 15,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 6,
+      "target": 0,
+      "delta": [
+        0,
+        1,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 7,
+      "target": 25,
+      "delta": [
+        0,
+        0,
+        -1
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 7,
+      "target": 4,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 7,
+      "target": 6,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 7,
+      "target": 16,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 7,
+      "target": 1,
+      "delta": [
+        0,
+        1,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 8,
+      "target": 26,
+      "delta": [
+        0,
+        0,
+        -1
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 8,
+      "target": 5,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 8,
+      "target": 7,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 8,
+      "target": 17,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 8,
+      "target": 2,
+      "delta": [
+        0,
+        1,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 8,
+      "target": 6,
+      "delta": [
+        1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 9,
+      "target": 11,
+      "delta": [
+        -1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 9,
+      "target": 15,
+      "delta": [
+        0,
+        -1,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 9,
+      "target": 0,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 9,
+      "target": 12,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 9,
+      "target": 18,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 10,
+      "target": 16,
+      "delta": [
+        0,
+        -1,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 10,
+      "target": 1,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 10,
+      "target": 9,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 10,
+      "target": 13,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 10,
+      "target": 19,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 11,
+      "target": 17,
+      "delta": [
+        0,
+        -1,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 11,
+      "target": 2,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 11,
+      "target": 10,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 11,
+      "target": 14,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 11,
+      "target": 20,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 11,
+      "target": 9,
+      "delta": [
+        1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 12,
+      "target": 14,
+      "delta": [
+        -1,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 12,
+      "target": 3,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 12,
+      "target": 9,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 12,
+      "target": 13,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 12,
+      "target": 15,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 12,
+      "target": 21,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 13,
+      "target": 4,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 13,
+      "target": 10,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 13,
+      "target": 12,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 13,
+      "target": 16,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 13,
+      "target": 22,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 14,
+      "target": 5,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 14,
+      "target": 11,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 14,
+      "target": 13,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 14,
+      "target": 17,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 14,
+      "target": 23,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 14,
+      "target": 12,
+      "delta": [
+        1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 15,
+      "target": 17,
+      "delta": [
+        -1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 15,
+      "target": 6,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 15,
+      "target": 12,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 15,
+      "target": 16,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 15,
+      "target": 24,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 15,
+      "target": 9,
+      "delta": [
+        0,
+        1,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 16,
+      "target": 7,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 16,
+      "target": 13,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 16,
+      "target": 15,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 16,
+      "target": 17,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 16,
+      "target": 25,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 16,
+      "target": 10,
+      "delta": [
+        0,
+        1,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 17,
+      "target": 8,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 17,
+      "target": 14,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 17,
+      "target": 16,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 17,
+      "target": 26,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 17,
+      "target": 11,
+      "delta": [
+        0,
+        1,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 17,
+      "target": 15,
+      "delta": [
+        1,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 18,
+      "target": 20,
+      "delta": [
+        -1,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 18,
+      "target": 24,
+      "delta": [
+        0,
+        -1,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 18,
+      "target": 9,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 18,
+      "target": 19,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 18,
+      "target": 21,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 18,
+      "target": 0,
+      "delta": [
+        0,
+        0,
+        1
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 19,
+      "target": 25,
+      "delta": [
+        0,
+        -1,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 19,
+      "target": 10,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 19,
+      "target": 18,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 19,
+      "target": 20,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 19,
+      "target": 22,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 19,
+      "target": 1,
+      "delta": [
+        0,
+        0,
+        1
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 20,
+      "target": 26,
+      "delta": [
+        0,
+        -1,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 20,
+      "target": 11,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 20,
+      "target": 19,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 20,
+      "target": 23,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 20,
+      "target": 2,
+      "delta": [
+        0,
+        0,
+        1
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 20,
+      "target": 18,
+      "delta": [
+        1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 21,
+      "target": 23,
+      "delta": [
+        -1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 21,
+      "target": 12,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 21,
+      "target": 18,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 21,
+      "target": 22,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 21,
+      "target": 24,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 21,
+      "target": 3,
+      "delta": [
+        0,
+        0,
+        1
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 22,
+      "target": 13,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 22,
+      "target": 19,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 22,
+      "target": 21,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 22,
+      "target": 23,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 22,
+      "target": 25,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 22,
+      "target": 4,
+      "delta": [
+        0,
+        0,
+        1
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 23,
+      "target": 14,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 23,
+      "target": 20,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 23,
+      "target": 22,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 23,
+      "target": 26,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 23,
+      "target": 5,
+      "delta": [
+        0,
+        0,
+        1
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 23,
+      "target": 21,
+      "delta": [
+        1,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 24,
+      "target": 26,
+      "delta": [
+        -1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 24,
+      "target": 15,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 24,
+      "target": 21,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn3_eg"
+    },
+    {
+      "source": 24,
+      "target": 25,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 24,
+      "target": 6,
+      "delta": [
+        0,
+        0,
+        1
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 24,
+      "target": 18,
+      "delta": [
+        0,
+        1,
+        0
+      ],
+      "kind": "Mn3_egpMn4_ed"
+    },
+    {
+      "source": 25,
+      "target": 16,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 25,
+      "target": 22,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 25,
+      "target": 24,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_egp"
+    },
+    {
+      "source": 25,
+      "target": 26,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 25,
+      "target": 7,
+      "delta": [
+        0,
+        0,
+        1
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 25,
+      "target": 19,
+      "delta": [
+        0,
+        1,
+        0
+      ],
+      "kind": "Mn4_edMn3_eg"
+    },
+    {
+      "source": 26,
+      "target": 17,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 26,
+      "target": 23,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 26,
+      "target": 25,
+      "delta": [
+        0,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn4_ed"
+    },
+    {
+      "source": 26,
+      "target": 8,
+      "delta": [
+        0,
+        0,
+        1
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 26,
+      "target": 20,
+      "delta": [
+        0,
+        1,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    },
+    {
+      "source": 26,
+      "target": 24,
+      "delta": [
+        1,
+        0,
+        0
+      ],
+      "kind": "Mn3_egMn3_egp"
+    }
+  ]
+}
